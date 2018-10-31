@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="homeViewModel"
+            type="lsh.framgia.com.moviedb.screen.home.HomeViewModel" />
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recyclerGenre"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff0000" />
+</layout>
