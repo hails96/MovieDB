@@ -14,7 +14,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun initComponent(savedInstanceState: Bundle?) {
         replaceFragment(
-            HomeFragment(), R.id.frameContainer,
+            HomeFragment.newInstance(), R.id.frame_container,
             HomeFragment::class.java.simpleName, false
         )
     }

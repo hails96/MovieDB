@@ -8,6 +8,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
+    companion object {
+        fun newInstance() = HomeFragment()
+    }
+
     override val bindingVariable: Int = BR.homeViewModel
     override val viewModel: HomeViewModel by viewModel()
     override val layoutId: Int = R.layout.fragment_home
