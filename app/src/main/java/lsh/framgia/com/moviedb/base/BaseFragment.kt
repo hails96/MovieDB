@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import lsh.framgia.com.moviedb.util.dismissProgressDialog
+import lsh.framgia.com.moviedb.util.showProgressDialog
 
 abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewModel> : Fragment() {
     abstract val bindingVariable: Int
@@ -29,5 +31,15 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
             executePendingBindings()
         }
         return viewBinding.root
+    }
+
+    protected fun showProgress() {
+        activity?.let {
+            showProgressDialog(it)
+        }
+    }
+
+    protected fun hideProgress() {
+        dismissProgressDialog()
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import lsh.framgia.com.moviedb.BuildConfig
 import lsh.framgia.com.moviedb.data.source.remote.network.ApiService
 import lsh.framgia.com.moviedb.util.API_END_POINT
+import lsh.framgia.com.moviedb.util.API_KEY
 import lsh.framgia.com.moviedb.util.NETWORK_TIME_OUT
 import okhttp3.Cache
 import okhttp3.Interceptor
@@ -40,7 +41,7 @@ private fun createHeaderInterceptor(): Interceptor {
     return Interceptor { chain ->
         val original = chain.request()
         val newUrl = original.url().newBuilder()
-            .addQueryParameter("api_key", BuildConfig.API_KEY)
+            .addQueryParameter(API_KEY, BuildConfig.API_KEY)
             .build()
         val requestBuilder = original.newBuilder()
             .url(newUrl)

@@ -10,7 +10,7 @@ data class Movie(
     @SerializedName("video")
     val video: Boolean?,
     @SerializedName("vote_average")
-    val voteAverage: Double?,
+    val voteAverage: Float?,
     @SerializedName("title")
     val title: String?,
     @SerializedName("popularity")
@@ -28,5 +28,6 @@ data class Movie(
     @SerializedName("overview")
     val overview: String?,
     @SerializedName("release_date")
-    val releaseDate: String?
+    val releaseDate: String?,
+    val isFavorite: Boolean?
 )
