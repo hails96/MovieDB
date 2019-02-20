@@ -22,7 +22,7 @@ val apiModule = module(override = true) {
     single { createOkHttpCache(get()) }
     single { createOkHttpClient(get(), get(name = "header"), get(name = "logging")) }
     single { createRetrofit(get()) }
-    single { createApiService(get()) }
+    single("test") { createApiService(get()) }
 }
 
 fun createOkHttpCache(context: Context): Cache {

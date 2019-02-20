@@ -20,4 +20,6 @@ val repositoryModule = module(override = true) {
     singleBy<MovieDataSource.RemoteDataSource, MovieRemoteDataSource>()
     singleBy<MovieDataSource.LocalDataSource, MovieLocalDataSource>()
     single<MovieRepository>()
+    single<GenreDataSource.LocalDataSource> { GenreLocalDataSource(get(name = "test")) }
+    single { GenreRepository(get(name = ""), get(name = "")) }
 }

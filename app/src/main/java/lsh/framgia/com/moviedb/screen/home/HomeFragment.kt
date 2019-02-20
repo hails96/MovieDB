@@ -10,6 +10,8 @@ import lsh.framgia.com.moviedb.data.model.Genre
 import lsh.framgia.com.moviedb.databinding.FragmentHomeBinding
 import lsh.framgia.com.moviedb.screen.genredetail.GenreDetailFragment
 import lsh.framgia.com.moviedb.screen.main.MainActivity
+import lsh.framgia.com.moviedb.screen.main.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
@@ -18,6 +20,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         const val NUMBER_OF_COLUMNS = 3
         fun newInstance() = HomeFragment()
     }
+
+//    private val mainViewModel: MainViewModel by sharedViewModel()
 
     override val bindingVariable: Int = BR.homeViewModel
     override val viewModel: HomeViewModel by viewModel()
@@ -58,8 +62,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         activity?.apply {
             if (this is MainActivity) {
                 replaceFragment(
-                    GenreDetailFragment.newInstance(genre), R.id.frame_container,
-                    GenreDetailFragment::class.java.simpleName, true
+                        GenreDetailFragment.newInstance(genre), R.id.frame_container,
+                        GenreDetailFragment::class.java.simpleName, true
                 )
             }
         }
