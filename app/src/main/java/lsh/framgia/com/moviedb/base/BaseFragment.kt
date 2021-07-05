@@ -14,7 +14,7 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
     abstract val viewModel: ViewModel
     abstract val layoutId: Int
 
-    abstract fun initComponent(viewDataBinding: ViewBinding)
+    abstract fun initComponent()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,7 +23,7 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
         viewBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         viewBinding.apply {
             root.isClickable = true
-            initComponent(viewBinding)
+            initComponent()
             setVariable(bindingVariable, viewModel)
             setLifecycleOwner(this@BaseFragment)
             executePendingBindings()
